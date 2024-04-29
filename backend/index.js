@@ -1,7 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const { connectToMongoDB } = require("./database");
-// const path = require("path")
+const router = require("./routes");
+
 
 const app = express();
 app.use(express.json());
@@ -11,7 +12,6 @@ app.use(express.json());
 //     res.sendFile(path.join(__dirname, "build/index.html"))
 // })
 
-const router = require("./routes");
 app.use("/api", router);
 
 const port = process.env.PORT || 5000; 
